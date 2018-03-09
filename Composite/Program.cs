@@ -9,24 +9,32 @@ namespace Composite
         {
             // Create a tree structure 
 
-            CompositeElement root =
-              new CompositeElement("Picture");
+            CompositeElement root = new CompositeElement("Picture");
             root.Add(new PrimitiveElement("Red Line"));
             root.Add(new PrimitiveElement("Blue Circle"));
             root.Add(new PrimitiveElement("Green Box"));
 
             // Create a branch
 
-            CompositeElement comp =
-              new CompositeElement("Two Circles");
+            CompositeElement comp = new CompositeElement("Two Circles");
             comp.Add(new PrimitiveElement("Black Circle"));
             comp.Add(new PrimitiveElement("White Circle"));
             root.Add(comp);
 
+            CompositeElement hamburger = new CompositeElement("Hamburger");
+            PrimitiveElement tomato = new PrimitiveElement("Tomato");
+            CompositeElement ketchup = new CompositeElement("Ketchup");
+            ketchup.Add(tomato);
+            hamburger.Add(tomato);
+            hamburger.Add(ketchup);
+            hamburger.Add(new PrimitiveElement("Lettuce"));
+            hamburger.Add(new CompositeElement("Meat"));
+            root.Add(hamburger);
+
             // Add and remove a PrimitiveElement
 
-            PrimitiveElement pe =
-              new PrimitiveElement("Yellow Line");
+            PrimitiveElement pe = new PrimitiveElement("Yellow Line");
+            pe.Add(new CompositeElement("Blue Point"));
             root.Add(pe);
             root.Remove(pe);
 

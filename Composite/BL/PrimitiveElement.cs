@@ -24,7 +24,7 @@ namespace Composite.BL
         public override void Display(int indent)
         {
             Console.WriteLine(
-              new String('-', indent) + " " + _name);
+              new String('-', indent) + "- " + _name);
         }
     }
 }
