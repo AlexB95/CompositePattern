@@ -8,29 +8,46 @@ namespace Composite
         static void Main(string[] args)
         {
             // Create a tree structure 
-
-            CompositeElement root = new CompositeElement("Picture");
-            root.Add(new PrimitiveElement("Red Line"));
-            root.Add(new PrimitiveElement("Blue Circle"));
-            root.Add(new PrimitiveElement("Green Box"));
-
+            CompositeElemnt root = new CompositeElement("Video");
+            root.Add(new PrimitiveElement("Duration"));
+            
+            CompositeElement fps = new Compositeelement("Frames Per Second");
+            root.Add(fps);
+            
+            CompositeElement photo = new CompositeElement("Photo");
+            fps.Add(photo);
+            
+            CompositeElement picture = new CompositeElement("Picture");
+            picture.Add(new PrimitiveElement("Color Blue"));
+            picture.Add(new PrimitiveElement("Color Red"));
+            picture.Add(new PrimitiveElement("Color Yellow"));
+            photo.Add(picture);
+            
+            CompositeElement line = new CompositeElement("Line");
+            picture.Add(new PrimitiveElement("Color Blue"));
+            picture.Add(new PrimitiveElement("Color Red"));
+            picture.Add(new PrimitiveElement("Color Yellow"));
+            picture.Add(line);
+            
+            CompositeElement circle = new CompositeElement("Circle");
+            picture.Add(new PrimitiveElement("Color Blue"));
+            picture.Add(new PrimitiveElement("Color Red"));
+            picture.Add(new PrimitiveElement("Color Yellow"));
+            picture.Add(circle);
+            
+            CompositeElement square = new CompositeElement("square");
+            picture.Add(new PrimitiveElement("Color Blue"));
+            picture.Add(new PrimitiveElement("Color Red"));
+            picture.Add(new PrimitiveElement("Color Yellow"));
+            picture.Add(square);
+            
             // Create a branch
 
             CompositeElement comp = new CompositeElement("Two Circles");
             comp.Add(new PrimitiveElement("Black Circle"));
             comp.Add(new PrimitiveElement("White Circle"));
             root.Add(comp);
-
-            CompositeElement hamburger = new CompositeElement("Hamburger");
-            PrimitiveElement tomato = new PrimitiveElement("Tomato");
-            CompositeElement ketchup = new CompositeElement("Ketchup");
-            ketchup.Add(tomato);
-            hamburger.Add(tomato);
-            hamburger.Add(ketchup);
-            hamburger.Add(new PrimitiveElement("Lettuce"));
-            hamburger.Add(new CompositeElement("Meat"));
-            root.Add(hamburger);
-
+            
             // Add and remove a PrimitiveElement
 
             PrimitiveElement pe = new PrimitiveElement("Yellow Line");
